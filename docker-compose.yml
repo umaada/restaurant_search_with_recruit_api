@@ -1,0 +1,16 @@
+version: '3'
+services:
+  laratube:
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/vendor
+    ports:
+      - '8000:8000'
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_PASSWORD: postgres_password
